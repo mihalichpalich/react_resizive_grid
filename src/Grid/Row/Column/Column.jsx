@@ -5,41 +5,42 @@ class Column extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            backgroundColor: 'lightblue'
-        };
-        this.controlSpan = this.controlSpan.bind(this);
-        this.changeColorMove = this.changeColorMove.bind(this);
-        this.changeColorUp = this.changeColorUp.bind(this);
+            columnWidth: '50%',
+            columnHeight: '300px'
+        }
+        this.initResize = this.initResize.bind(this);
+        this.resize = this.resize.bind(this);
+        this.stopResize = this.stopResize.bind(this);
     }
 
-    componentDidMount() {
-        $(".control").bind('mousedown', this.controlSpan);
+    initResize() {
+        $(window).bind('mousemove', this.resize);
+        $(window).bind('mouseup', this.stopResize);
     }
 
-    controlSpan() {
-        $(window).bind('mousemove', this.changeColorMove);
-        $(window).bind('mouseup', this.changeColorUp);
-    }
+    resize(e) {
+        let newColumnWidth = (e.clientX - $(".column").offset().left);
+        let newColumnHeight = (e.clientY - $(".column").offset().top);
 
-    changeColorMove() {
         this.setState({
-            backgroundColor: 'green'
+            columnWidth: newColumnWidth,
+            columnHeight: newColumnHeight
         });
     }
 
-    changeColorUp() {
-        this.setState({
-            backgroundColor: 'yellow'
-        });
+    stopResize() {
+        $(window).unbind('mousemove', this.resize);
+        $(window).unbind('mouseup', this.stopResize);
     }
 
     render() {
         const ColumnStyles = {
             columnStyle: {
+                boxSizing: 'border-box',
                 position: 'relative',
-                width: '50%',
-                height: '300px',
-                backgroundColor: this.state.backgroundColor,
+                width: this.state.columnWidth,
+                height: this.state.columnHeight,
+                backgroundColor: 'lightblue',
                 border: '1px solid black'
             },
             spanStyle: {
@@ -54,9 +55,10 @@ class Column extends React.Component {
         };
 
         return (
-            <div style={ColumnStyles.columnStyle}>
-                ширина
-             	<span className="controlSpan" style={ColumnStyles.spanStyle} onMouseDown={this.controlSpan}></span>
+            <div className="column" style={ColumnStyles.columnStyle}>
+                ширина {this.state.columnWidth} <br/>
+                высота {this.state.columnHeight}
+             	<span style={ColumnStyles.spanStyle} onMouseDown={this.initResize}></span>
             </div>
         )
     }
