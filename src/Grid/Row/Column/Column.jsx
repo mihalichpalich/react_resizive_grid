@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from "jquery";
 
 class Column extends React.Component {
     constructor(props) {
@@ -6,14 +7,14 @@ class Column extends React.Component {
         this.state = {
             backgroundColor: 'lightblue'
         };
-        this.divMouseDown = this.divMouseDown.bind(this);
+        this.spanMouseDown = this.spanMouseDown.bind(this);
     }
 
     componentDidMount() {
-        document.addEventListener('mousedown', this.divMouseDown);
+        $(".control").bind('mousedown', this.spanMouseDown);
     }
 
-    divMouseDown() {
+    spanMouseDown() {
         this.setState({
             backgroundColor: 'green'
         });
@@ -40,9 +41,9 @@ class Column extends React.Component {
         };
 
         return (
-            <div style={styles.columnStyle} onMouseDown={this.divMouseDown}>
+            <div style={styles.columnStyle}>
                 ширина
-             	<span style={styles.spanStyle}></span>
+             	<span className="control" style={styles.spanStyle} onMouseDown={this.spanMouseDown}></span>
             </div>
         )
     }
