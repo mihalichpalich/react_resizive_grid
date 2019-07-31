@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ddc33a7-0bb8-49d1-baac-6582415af927" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Grid/Grid.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Row/Column/Column.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grid/Row/Column/Column.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Row/Row.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grid/Row/Row.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Grid/Row/Column/Column.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grid/Row/Column/Column.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -19,7 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -32,7 +29,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Grid/Grid.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
+            <state relative-caret-position="63">
               <caret line="5" column="4" selection-start-line="4" selection-end-line="8" selection-end-column="1" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -44,7 +41,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Grid/Row/Row.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
+            <state relative-caret-position="126">
               <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -56,8 +53,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Grid/Row/Column/Column.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="420">
+              <caret line="41" column="74" selection-start-line="41" selection-start-column="74" selection-end-line="41" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -73,6 +70,7 @@
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/Grid/Grid.jsx" />
         <option value="$PROJECT_DIR$/src/Grid/Row/Row.jsx" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/Grid/Row/Column/Column.jsx" />
       </list>
     </option>
@@ -189,19 +187,22 @@
       <option name="presentableId" value="Default" />
       <updated>1563484593872</updated>
       <workItem from="1563484597322" duration="4341000" />
+      <workItem from="1564563126209" duration="52000" />
+      <workItem from="1564563273931" duration="652000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4341000" />
+    <option name="totallyTimeSpent" value="5045000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="npm" side_tool="true" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16375838" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16868381" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
@@ -215,7 +216,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" id="Terminal" order="3" visible="true" weight="0.22214764" />
+      <window_info anchor="right" id="Terminal" order="3" visible="true" weight="0.22163388" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +232,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Grid/Grid.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
+        <state relative-caret-position="63">
           <caret line="5" column="4" selection-start-line="4" selection-end-line="8" selection-end-column="1" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -241,7 +242,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Grid/Row/Row.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
+        <state relative-caret-position="126">
           <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -249,10 +250,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Grid/Row/Column/Column.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="420">
+          <caret line="41" column="74" selection-start-line="41" selection-start-column="74" selection-end-line="41" selection-end-column="74" />
         </state>
       </provider>
     </entry>

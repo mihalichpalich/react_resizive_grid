@@ -1,7 +1,23 @@
 import React from 'react';
 
 class Column extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            backgroundColor: 'lightblue'
+        };
+        this.divMouseDown = this.divMouseDown.bind(this);
+    }
 
+    componentDidMount() {
+        document.addEventListener('mousedown', this.divMouseDown);
+    }
+
+    divMouseDown() {
+        this.setState({
+            backgroundColor: 'green'
+        });
+    }
 
     render() {
         const styles = {
@@ -9,7 +25,7 @@ class Column extends React.Component {
                 position: 'relative',
                 width: '50%',
                 height: '300px',
-                backgroundColor: 'lightblue',
+                backgroundColor: this.state.backgroundColor,
                 border: '1px solid black'
             },
             spanStyle: {
@@ -24,7 +40,7 @@ class Column extends React.Component {
         };
 
         return (
-            <div style={styles.columnStyle}>
+            <div style={styles.columnStyle} onMouseDown={this.divMouseDown}>
                 ширина
              	<span style={styles.spanStyle}></span>
             </div>
