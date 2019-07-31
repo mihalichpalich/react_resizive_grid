@@ -7,21 +7,34 @@ class Column extends React.Component {
         this.state = {
             backgroundColor: 'lightblue'
         };
-        this.spanMouseDown = this.spanMouseDown.bind(this);
+        this.controlSpan = this.controlSpan.bind(this);
+        this.changeColorMove = this.changeColorMove.bind(this);
+        this.changeColorUp = this.changeColorUp.bind(this);
     }
 
     componentDidMount() {
-        $(".control").bind('mousedown', this.spanMouseDown);
+        $(".control").bind('mousedown', this.controlSpan);
     }
 
-    spanMouseDown() {
+    controlSpan() {
+        $(window).bind('mousemove', this.changeColorMove);
+        $(window).bind('mouseup', this.changeColorUp);
+    }
+
+    changeColorMove() {
         this.setState({
             backgroundColor: 'green'
         });
     }
 
+    changeColorUp() {
+        this.setState({
+            backgroundColor: 'yellow'
+        });
+    }
+
     render() {
-        const styles = {
+        const ColumnStyles = {
             columnStyle: {
                 position: 'relative',
                 width: '50%',
@@ -41,9 +54,9 @@ class Column extends React.Component {
         };
 
         return (
-            <div style={styles.columnStyle}>
+            <div style={ColumnStyles.columnStyle}>
                 ширина
-             	<span className="control" style={styles.spanStyle} onMouseDown={this.spanMouseDown}></span>
+             	<span className="controlSpan" style={ColumnStyles.spanStyle} onMouseDown={this.controlSpan}></span>
             </div>
         )
     }

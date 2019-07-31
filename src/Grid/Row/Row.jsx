@@ -4,8 +4,13 @@ import Column from './Column/Column.jsx';
 
 class Row extends React.Component {
 	render() {
+		const RowStyles = {
+			display: 'flex',
+			alignItems: 'stretch'
+		};
+
 		return (
-			<div>
+			<div style={RowStyles.columnStyle}>
 				<Column/>
 			</div>
 		)
