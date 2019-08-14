@@ -5,32 +5,62 @@ class Column extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      columnWidth: "50%",
-      columnHeight: "300px"
+      columnWidth: "33%",
+      columnHeight: "300px",
+      originalWidth: 0,
+      originalHeight: 0,
+      originalX: 0,
+      originalY: 0,
+      originalMouseX: 0,
+      originalMouseY: 0
     };
     this.initResize = this.initResize.bind(this);
+    this.getSize = this.getSize.bind(this);
     this.resize = this.resize.bind(this);
     this.stopResize = this.stopResize.bind(this);
   }
 
   initResize() {
+    $(".resizer").bind("mousedown", this.getSize);
+  }
+
+  getSize(e) {
+    e.preventDefault();
+    this.setState({
+      originalWidth: $(".column").width(),
+      originalHeight: $(".column").height(),
+      originalX: $(".column")
+        .get(0)
+        .getBoundingClientRect().left,
+      originalY: $(".column")
+        .get(0)
+        .getBoundingClientRect().top,
+      originalMouseX: e.pageX,
+      originalMouseY: e.pageY
+    });
     $(window).bind("mousemove", this.resize);
     $(window).bind("mouseup", this.stopResize);
   }
 
   resize(e) {
-    let newColumnWidth = e.clientX - $(".column").offset().left;
-    let newColumnHeight = e.clientY - $(".column").offset().top;
-
-    this.setState({
-      columnWidth: newColumnWidth,
-      columnHeight: newColumnHeight
-    });
+    const actualWidth =
+      this.state.originalWidth + (e.pageX - this.state.originalMouseX);
+    const actualHeight =
+      this.state.originalHeight + (e.pageY - this.state.originalMouseY);
+    if (actualWidth > 0) {
+      this.setState({
+        columnWidth: actualWidth
+      });
+    }
+    if (actualHeight > 0) {
+      this.setState({
+        columnHeight: actualHeight
+      });
+    }
   }
 
   stopResize() {
     $(window).unbind("mousemove", this.resize);
-    $(window).unbind("mouseup", this.stopResize);
   }
 
   render() {
@@ -59,8 +89,9 @@ class Column extends React.Component {
         ширина {this.state.columnWidth} <br />
         высота {this.state.columnHeight}
         <span
+          className="resizer"
           style={ColumnStyles.spanStyle}
-          onMouseDown={this.initResize}
+          onMouseOver={this.initResize}
         ></span>
       </div>
     );

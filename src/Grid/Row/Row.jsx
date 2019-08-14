@@ -1,20 +1,22 @@
-import React from 'react';
+import React from "react";
 
-import Column from './Column/Column.jsx';
+import Column from "./Column/Column.jsx";
 
 class Row extends React.Component {
-	render() {
-		const RowStyles = {
-			display: 'flex',
-			alignItems: 'stretch'
-		};
+  render() {
+    const RowStyles = {
+      display: "flex",
+      alignItems: "stretch",
+      width: "100%"
+    };
 
-		return (
-			<div style={RowStyles.columnStyle}>
-				<Column/>
-			</div>
-		)
-	}
+    return (
+      <div style={RowStyles}>
+        <Column />
+        <Column />
+      </div>
+    );
+  }
 }
 
 export default Row;
