@@ -13,7 +13,7 @@ class Row extends React.Component {
     return (
       <div style={RowStyles}>
         <Column />
-        <Column />
+        {/* <Column /> */}
       </div>
     );
   }
