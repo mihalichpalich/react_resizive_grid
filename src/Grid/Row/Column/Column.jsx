@@ -6,66 +6,57 @@ class Column extends React.Component {
     super(props);
     this.state = {
       columnWidth: "33%",
-      columnHeight: "300px",
-      originalWidth: 0,
-      originalHeight: 0,
-      originalX: 0,
-      originalY: 0,
-      originalMouseX: 0,
-      originalMouseY: 0
+      columnHeight: "200px",
+      columnResize: null
     };
     this.initResize = this.initResize.bind(this);
-    this.getSize = this.getSize.bind(this);
     this.resize = this.resize.bind(this);
     this.stopResize = this.stopResize.bind(this);
   }
 
-  initResize() {
-    $(".resizer").bind("mousedown", this.getSize);
-  }
-
-  getSize(e) {
+  initResize(e) {
     e.preventDefault();
+
     this.setState({
-      originalWidth: $(".column").width(),
-      originalHeight: $(".column").height(),
-      originalX: $(".column")
-        .get(0)
-        .getBoundingClientRect().left,
-      originalY: $(".column")
-        .get(0)
-        .getBoundingClientRect().top,
-      originalMouseX: e.pageX,
-      originalMouseY: e.pageY
+      columnResize: e.target.parentNode
     });
+
     $(window).bind("mousemove", this.resize);
     $(window).bind("mouseup", this.stopResize);
   }
 
   resize(e) {
-    const actualWidth =
-      this.state.originalWidth + (e.pageX - this.state.originalMouseX);
-    const actualHeight =
-      this.state.originalHeight + (e.pageY - this.state.originalMouseY);
-    if (actualWidth > 0) {
-      this.setState({
-        columnWidth: actualWidth
-      });
+    if (this.state.columnResize == null) {
+      return;
     }
-    if (actualHeight > 0) {
-      this.setState({
-        columnHeight: actualHeight
-      });
-    }
+
+    let columnResizeWidth = this.state.columnResize.style.width;
+    let columnResizeHeight = this.state.columnResize.style.height;
+
+    columnResizeWidth =
+      e.clientX - this.state.columnResize.offsetLeft + 10 + "px";
+    columnResizeHeight =
+      e.clientY - this.state.columnResize.offsetTop + 10 + "px";
+
+    this.setState({
+      columnWidth: columnResizeWidth,
+      columnHeight: columnResizeHeight
+    });
   }
 
   stopResize() {
+    this.setState({
+      columnResize: null
+    });
+
     $(window).unbind("mousemove", this.resize);
+    $(window).unbind("mouseup", this.stopResize);
   }
 
   render() {
     const ColumnStyles = {
       columnStyle: {
+        display: "flex",
         boxSizing: "border-box",
         position: "relative",
         width: this.state.columnWidth,
@@ -80,7 +71,8 @@ class Column extends React.Component {
         right: 0,
         width: "20px",
         height: "20px",
-        backgroundColor: "red"
+        backgroundColor: "red",
+        cursor: "se-resize"
       }
     };
 
@@ -91,7 +83,7 @@ class Column extends React.Component {
         <span
           className="resizer"
           style={ColumnStyles.spanStyle}
-          onMouseOver={this.initResize}
+          onMouseDown={this.initResize}
         ></span>
       </div>
     );

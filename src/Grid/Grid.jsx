@@ -1,11 +1,15 @@
-import React from 'react';
+import React from "react";
 
 import Row from "./Row/Row";
 
 class Grid extends React.Component {
-    render() {
-        return <Row/>
-    }
+  render() {
+    return (
+      <div>
+        <Row />
+      </div>
+    );
+  }
 }
 
 export default Grid;
