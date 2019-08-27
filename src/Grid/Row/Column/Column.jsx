@@ -5,20 +5,33 @@ class Column extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      columnWidth: "33%",
-      columnHeight: "200px",
-      columnResize: null
+      columnWidth: "50%",
+      columnOldWidthPx: null,
+      columnHeight: null,
+      columnResize: null,
+      columnOldWidth: null,
+      columnNewWidth: null,
+      columnFlexGrow: 1
     };
     this.initResize = this.initResize.bind(this);
     this.resize = this.resize.bind(this);
     this.stopResize = this.stopResize.bind(this);
   }
 
+  componentDidMount() {
+    let columnOldWidthPxVar = $(".column").width();
+
+    this.setState({
+      columnOldWidthPx: columnOldWidthPxVar
+    });
+  }
+
   initResize(e) {
     e.preventDefault();
 
     this.setState({
-      columnResize: e.target.parentNode
+      columnResize: e.target.parentNode,
+      columnOldWidth: this.state.columnWidth
     });
 
     $(window).bind("mousemove", this.resize);
@@ -38,9 +51,15 @@ class Column extends React.Component {
     columnResizeHeight =
       e.clientY - this.state.columnResize.offsetTop + 10 + "px";
 
+    let newFlexGrow =
+      (e.clientX - this.state.columnResize.offsetLeft + 10) /
+      this.state.columnOldWidthPx;
+
     this.setState({
       columnWidth: columnResizeWidth,
-      columnHeight: columnResizeHeight
+      columnHeight: columnResizeHeight,
+      columnNewWidth: columnResizeWidth,
+      columnFlexGrow: newFlexGrow
     });
   }
 
@@ -54,9 +73,9 @@ class Column extends React.Component {
   }
 
   render() {
-    const ColumnStyles = {
+    const columnStyles = {
       columnStyle: {
-        display: "flex",
+        flexGrow: this.state.columnFlexGrow,
         boxSizing: "border-box",
         position: "relative",
         width: this.state.columnWidth,
@@ -77,12 +96,12 @@ class Column extends React.Component {
     };
 
     return (
-      <div className="column" style={ColumnStyles.columnStyle}>
-        ширина {this.state.columnWidth} <br />
-        высота {this.state.columnHeight}
+      <div className="column" style={columnStyles.columnStyle}>
+        ширина: {columnStyles.columnStyle.width} <br />
+        длина: {columnStyles.columnStyle.height}
         <span
           className="resizer"
-          style={ColumnStyles.spanStyle}
+          style={columnStyles.spanStyle}
           onMouseDown={this.initResize}
         ></span>
       </div>

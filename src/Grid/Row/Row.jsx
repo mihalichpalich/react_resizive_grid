@@ -3,18 +3,28 @@ import React from "react";
 import Column from "./Column/Column.jsx";
 
 class Row extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
-    const RowStyles = {
+    const rowStyles = {
       display: "flex",
-      alignItems: "stretch",
+      backgroundColor: "green",
+      minHeight: "200px",
       width: "100%"
     };
 
+    let columns = [];
+
+    for (let i = 0; i < 2; i++) {
+      columns.push(<Column key={i} />);
+    }
+
     return (
-      <div style={RowStyles}>
-        <Column />
-        <Column />
-        {/* <Column /> */}
+      <div className="row" style={rowStyles}>
+        {columns}
       </div>
     );
   }

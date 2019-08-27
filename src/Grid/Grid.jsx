@@ -7,6 +7,7 @@ class Grid extends React.Component {
     return (
       <div>
         <Row />
+        {/* <Row /> */}
       </div>
     );
   }
