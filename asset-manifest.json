@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/react_resizive_grid/static/css/main.ba49ec77.chunk.css",
-    "main.js": "/react_resizive_grid/static/js/main.56d7d2d3.chunk.js",
-    "main.js.map": "/react_resizive_grid/static/js/main.56d7d2d3.chunk.js.map",
+    "main.js": "/react_resizive_grid/static/js/main.bd15ef15.chunk.js",
+    "main.js.map": "/react_resizive_grid/static/js/main.bd15ef15.chunk.js.map",
     "runtime~main.js": "/react_resizive_grid/static/js/runtime~main.7f3bb057.js",
     "runtime~main.js.map": "/react_resizive_grid/static/js/runtime~main.7f3bb057.js.map",
-    "static/js/2.10b0a915.chunk.js": "/react_resizive_grid/static/js/2.10b0a915.chunk.js",
-    "static/js/2.10b0a915.chunk.js.map": "/react_resizive_grid/static/js/2.10b0a915.chunk.js.map",
+    "static/js/2.0afe2067.chunk.js": "/react_resizive_grid/static/js/2.0afe2067.chunk.js",
+    "static/js/2.0afe2067.chunk.js.map": "/react_resizive_grid/static/js/2.0afe2067.chunk.js.map",
     "index.html": "/react_resizive_grid/index.html",
-    "precache-manifest.028bc5c2fcd600a1c2f42d311f292ad1.js": "/react_resizive_grid/precache-manifest.028bc5c2fcd600a1c2f42d311f292ad1.js",
+    "precache-manifest.a6f60926a48060539d53c0dacdf7ab5c.js": "/react_resizive_grid/precache-manifest.a6f60926a48060539d53c0dacdf7ab5c.js",
     "service-worker.js": "/react_resizive_grid/service-worker.js",
     "static/css/main.ba49ec77.chunk.css.map": "/react_resizive_grid/static/css/main.ba49ec77.chunk.css.map"
   }
