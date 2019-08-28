@@ -7,7 +7,7 @@ class Column extends React.Component {
     this.state = {
       columnWidth: "50%",
       columnOldWidthPx: null,
-      columnHeight: null,
+      columnHeight: "auto",
       columnResize: null,
       columnOldWidth: null,
       columnNewWidth: null,
@@ -61,11 +61,14 @@ class Column extends React.Component {
       columnNewWidth: columnResizeWidth,
       columnFlexGrow: newFlexGrow
     });
+
+    this.props.heightFromColumn(this.state.columnHeight);
   }
 
   stopResize() {
     this.setState({
-      columnResize: null
+      columnResize: null,
+      columnHeight: "auto"
     });
 
     $(window).unbind("mousemove", this.resize);
@@ -97,8 +100,16 @@ class Column extends React.Component {
 
     return (
       <div className="column" style={columnStyles.columnStyle}>
-        ширина: {columnStyles.columnStyle.width} <br />
-        длина: {columnStyles.columnStyle.height}
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam
+          doloribus quia facilis odit voluptas perspiciatis ratione voluptate
+          dolore adipisci odio, dolorum numquam ducimus porro totam perferendis
+          saepe in quos rem possimus reiciendis nam accusamus! Nemo commodi
+          natus corrupti ullam eos aspernatur animi officia quod. Dignissimos,
+          odio. Dolores doloribus laboriosam, tempora nobis inventore dicta
+          vitae eum, aspernatur temporibus perferendis sequi qui earum aliquid?
+          Ullam ipsam voluptates neque soluta sunt nostrum nihil!
+        </p>
         <span
           className="resizer"
           style={columnStyles.spanStyle}
